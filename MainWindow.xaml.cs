@@ -22,9 +22,9 @@ using System.Windows.Shapes;
 
 namespace CameraDetectObject
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// I want the camera to detect my object. Detect objects in real time, such as square shapes, triangles, spheres. can you help me?
+
+
     public partial class MainWindow : Window
     {
         public MainWindow()
