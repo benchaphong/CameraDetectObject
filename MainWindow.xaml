@@ -1,0 +1,75 @@
+﻿<Window x:Class="CameraDetectObject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CameraDetectObject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Image x:Name="videoPlayer"
+               Width="690"
+               Margin="0,0,11,40">
+        </Image>
+
+        <ComboBox x:Name="comboBox" FontWeight="SemiBold"
+                                    Width="171"
+                                    Height="21"
+                                    Margin="27,0,0,10"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Bottom"
+                                    DisplayMemberPath="Name"
+                                    ItemsSource="{Binding VideoDevices}"
+                                    SelectedItem="{Binding CurrentDevice}">
+        </ComboBox>
+
+        <RadioButton Content="Original" FontWeight="SemiBold"
+                                        Width="65"
+                                        Height="21"
+                                        Margin="218,0,0,6"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Bottom"
+                                        IsChecked="{Binding Original}">
+        </RadioButton>
+
+        <RadioButton Content="Threshold" FontWeight="SemiBold"
+                                         Width="76"
+                                         Height="21"
+                                         x:Name="rbThreshold"
+                                         Margin="379,0,0,6"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Bottom"
+                                         IsChecked="{Binding Thresholded}">
+        </RadioButton>
+
+        <RadioButton Content="Grayscale" FontWeight="SemiBold"
+                                         Width="76"
+                                         Height="21"
+                                         Margin="298,0,0,6"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Bottom"
+                                         IsChecked="{Binding Grayscaled}">
+        </RadioButton>
+
+        <Slider x:Name="slider" Minimum="0"
+                                Maximum="256"
+                                IsEnabled="{Binding ElementName=rbThreshold, Path=IsChecked}"
+                                Value="{Binding Threshold}"
+                                Width="98"
+                                Height="29"
+                                Margin="484,0,0,-2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom" Grid.RowSpan="2">
+        </Slider>
+
+        <CheckBox x:Name="rbThreshold_Copy" FontWeight="SemiBold"
+                                            Width="98"
+                                            Height="20"
+                                            Margin="603,0,0,6"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Bottom"
+                                            Content="Inverted"
+                                            IsChecked="{Binding Inverted}">
+        </CheckBox>
+    </Grid>
+</Window>
